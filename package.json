@@ -1,0 +1,16 @@
+{
+  "name": "sbtc-yield-aggregator",
+  "version": "1.0.0",
+  "description": "sBTC Yield Aggregator on Stacks",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@hirosystems/clarinet-sdk": "^3.8.1",
+    "@stacks/network": "^7.3.1",
+    "@stacks/transactions": "^7.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vitest": "^4.0.18"
+  }
+}

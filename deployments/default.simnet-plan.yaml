@@ -1,0 +1,97 @@
+---
+id: 0
+name: "Simulated deployment, used as a default for `clarinet console`, `clarinet test` and `clarinet check`"
+network: simnet
+genesis:
+  wallets:
+    - name: deployer
+      address: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+      balance: "100000000000000"
+      sbtc-balance: "1000000000"
+    - name: wallet_1
+      address: ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5
+      balance: "10000000000000"
+      sbtc-balance: "1000000000"
+    - name: wallet_2
+      address: ST2CY5V39NHDPWSXMW9QDT3HC3GD6Q6XX4CFRK9AG
+      balance: "10000000000000"
+      sbtc-balance: "1000000000"
+    - name: wallet_3
+      address: ST2JHG361ZXG51QTKY2NQCVBPPRRE2KZB1HR05NNC
+      balance: "10000000000000"
+      sbtc-balance: "1000000000"
+  contracts:
+    - genesis
+    - lockup
+    - bns
+    - cost-voting
+    - costs
+    - pox
+    - costs-2
+    - pox-2
+    - costs-3
+    - pox-3
+    - pox-4
+    - signers
+    - signers-voting
+    - costs-4
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - emulated-contract-publish:
+            contract-name: sbtc-token
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/mocks/mock-sbtc.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: mock-hermetica-token
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/mocks/mock-hermetica-token.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: state-hbtc-v1
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/mocks/mock-hermetica-state.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: vault-hbtc-v1
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/mocks/mock-hermetica-vault.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: strategy-hermetica
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/strategy-hermetica.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: v0-vault-sbtc
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/mocks/mock-zest-vault.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: v0-4-market
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/mocks/mock-zest-market.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: strategy-zest
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/strategy-zest.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: token-agbtc
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/token-agbtc.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: aggregator-vault
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/aggregator-vault.clar
+            clarity-version: 3
+        - emulated-contract-publish:
+            contract-name: strategy-registry
+            emulated-sender: ST1JAHE8GEHB0MCBGR8J6W0AA7TJEE1XKFSD2Q80H
+            path: contracts/strategy-registry.clar
+            clarity-version: 3
+      epoch: "3.0"

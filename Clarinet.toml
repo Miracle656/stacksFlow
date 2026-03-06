@@ -1,0 +1,82 @@
+[project]
+name = "sbtc-yield-aggregator"
+authors = []
+description = "Non-custodial sBTC yield aggregator -- deposits sBTC, receives agBTC yield-bearing shares"
+telemetry = false
+cache_dir = "./.cache"
+epoch = 3.0
+
+# ── Local Mock Dependencies (deploy order matters: dependencies first) ─────────
+
+# 1. sBTC mock token (used by vault mocks)
+[contracts.sbtc-token]
+path = "contracts/mocks/mock-sbtc.clar"
+clarity_version = 3
+epoch = 3.0
+
+# 2. Hermetica state oracle (no dependencies)
+[contracts.state-hbtc-v1]
+path = "contracts/mocks/mock-hermetica-state.clar"
+clarity_version = 3
+epoch = 3.0
+
+# 3. Hermetica hBTC share token (no dependencies)
+[contracts.mock-hermetica-token]
+path = "contracts/mocks/mock-hermetica-token.clar"
+clarity_version = 3
+epoch = 3.0
+
+# 4. Hermetica vault (depends on sbtc-token, mock-hermetica-token)
+[contracts.vault-hbtc-v1]
+path = "contracts/mocks/mock-hermetica-vault.clar"
+clarity_version = 3
+epoch = 3.0
+
+# 5. Zest zsBTC vault token (no dependencies)
+[contracts.v0-vault-sbtc]
+path = "contracts/mocks/mock-zest-vault.clar"
+clarity_version = 3
+epoch = 3.0
+
+# 6. Zest market (depends on sbtc-token, v0-vault-sbtc)
+[contracts.v0-4-market]
+path = "contracts/mocks/mock-zest-market.clar"
+clarity_version = 3
+epoch = 3.0
+
+# ── Our contracts (deploy order matters) ──────────────────────────────────────
+
+[contracts.token-agbtc]
+path = "contracts/token-agbtc.clar"
+clarity_version = 3
+epoch = 3.0
+
+[contracts.strategy-registry]
+path = "contracts/strategy-registry.clar"
+clarity_version = 3
+epoch = 3.0
+
+[contracts.strategy-zest]
+path = "contracts/strategy-zest.clar"
+clarity_version = 3
+epoch = 3.0
+
+[contracts.strategy-hermetica]
+path = "contracts/strategy-hermetica.clar"
+clarity_version = 3
+epoch = 3.0
+
+[contracts.aggregator-vault]
+path = "contracts/aggregator-vault.clar"
+clarity_version = 3
+epoch = 3.0
+
+# ── REPL / simnet config ─────────────────────────────────────────────────────
+[repl.analysis]
+passes = ["check_checker"]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
