@@ -1,0 +1,27 @@
+---
+title: 'Architecture'
+description: 'How the Aurum aggregator works under the hood'
+---
+
+## System Overview
+
+Aurum acts as a non-custodial yield aggregation layer sitting above other DeFi protocols on Stacks (like Zest and Hermetica).
+
+When you deposit sBTC into Aurum, the protocol mints **agBTC** tokens to your wallet. Behind the scenes, the smart contracts take that sBTC and automatically deposit it into whitelisted yield-generating strategies.
+
+<img className="block dark:hidden" src="/images/hero-light.png" alt="Architecture Diagram Light" />
+<img className="hidden dark:block" src="/images/hero-dark.png" alt="Architecture Diagram Dark" />
+
+---
+
+## The agBTC Vault
+
+The core of the architecture is the **agBTC Vault Contract**. This contract is responsible for:
+1. Accepting sBTC from users.
+2. Minting the agBTC share tokens.
+3. Managing the accounting of how much sBTC each agBTC token is entitled to.
+4. Routing the deposited sBTC to the active strategy contracts.
+
+## Rebalancing
+
+To maintain optimal yield and risk distribution, Aurum periodically rebalances its underlying sBTC allocation. Currently, the protocol routes funds based on a predefined ratio (e.g., 50% Zest, 50% Hermetica), but future governance updates will allow dynamic allocation based on real-time APY rates.

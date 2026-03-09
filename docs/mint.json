@@ -17,12 +17,12 @@
     "topbarLinks": [
         {
             "name": "App",
-            "url": "https://aurum.xyz"
+            "url": "https://stacks-flow.vercel.app/"
         }
     ],
     "topbarCtaButton": {
         "name": "Launch App",
-        "url": "https://aurum.xyz"
+        "url": "https://stacks-flow.vercel.app/"
     },
     "navigation": [
         {

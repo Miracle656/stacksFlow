@@ -1,0 +1,33 @@
+---
+title: 'Yield Sources'
+description: 'Where the yield actually comes from'
+---
+
+Aurum generates its blended APY by interacting with established, audited DeFi protocols within the Stacks ecosystem.
+
+Currently, Aurum integrates with two primary yield sources: **Zest Protocol** and **Hermetica**.
+
+---
+
+## 1. Zest Protocol (Over-collateralized Lending)
+
+Zest Protocol is the premiere lending platform on Stacks. By supplying sBTC to Zest's lending pools, Aurum earns a variable interest rate paid by borrowers.
+
+- **Risk Profile:** Low to Medium
+- **Mechanism:** Borrowers supply over-collateralized assets (like STX) to borrow sBTC. The interest they pay to borrow is passed on to suppliers.
+- **Yield Format:** Auto-compounding sBTC
+
+## 2. Hermetica (Delta-Neutral Strategies)
+
+Hermetica offers structured products, particularly delta-neutral vaults that generate yield through funding rates on perpetual exchanges and options selling.
+
+- **Risk Profile:** Medium
+- **Mechanism:** Executes market-neutral trading strategies (like cash-and-carry arbitrages) that generate yield regardless of Bitcoin's price direction.
+- **Yield Format:** Yield is realized in sBTC.
+
+---
+
+## The Blended APY Advantage
+
+By splitting deposits across both protocols, Aurum achieves a **Blended APY**. 
+This provides a smoother return curve—when lending rates on Zest are low, Hermetica's trading strategies often compensate, and vice-versa, giving you the best of both worlds without manual management.
