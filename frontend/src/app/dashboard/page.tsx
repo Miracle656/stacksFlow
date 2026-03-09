@@ -43,14 +43,14 @@ export default function DashboardPage() {
             </div>
 
             {/* Top Stats Bar */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div className="grid-3" style={{ marginBottom: '1.5rem' }}>
                 <StatCard label="Total Value Locked" value="24.5" unit="sBTC" color="var(--blue)" />
                 <StatCard label="Your agBTC Balance" value="2.1402" unit="agBTC" color="var(--text-primary)" highlight />
                 <StatCard label="Pending Yield" value="0.0051" unit="sBTC" color="var(--green)" dot />
             </div>
 
             {/* Main 2-column Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '1.5rem', alignItems: 'start' }}>
+            <div className="grid-1-360">
 
                 {/* Left: Vault — white card with vault-door circle motif (image 4 concept) */}
                 <VaultCard>
@@ -205,7 +205,7 @@ function VaultCard({ children }: { children: React.ReactNode }) {
                     <span style={{ marginLeft: 'auto', padding: '0.2rem 0.7rem', borderRadius: '9999px', background: 'var(--orange-light)', border: '1px solid rgba(252,100,50,0.3)', color: 'var(--orange)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.04em' }}>LIVE</span>
                 </div>
                 <div style={{ height: 1, background: 'var(--border)', marginBottom: '1.5rem' }} />
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
+                <div className="grid-2">
                     {children}
                 </div>
             </div>

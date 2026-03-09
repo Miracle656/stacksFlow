@@ -44,13 +44,11 @@ export default function Home() {
       </div>
 
       {/* Stats Banner */}
-      <div className="card" style={{
+      <div className="card grid-3" style={{
         width: '100%',
         maxWidth: '800px',
         padding: '1.75rem 2.5rem',
         marginBottom: '4rem',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
         gap: '2rem',
         textAlign: 'center',
       }}>
@@ -58,8 +56,8 @@ export default function Home() {
           { label: 'Total Value Locked', value: '24.5 sBTC' },
           { label: 'Blended APY', value: '~8.4%', orange: true },
           { label: 'Total Yield Paid', value: '1.2 sBTC' },
-        ].map((s) => (
-          <div key={s.label} style={{ borderRight: s.label !== 'Total Yield Paid' ? '1px solid var(--border)' : 'none', paddingRight: s.label !== 'Total Yield Paid' ? '2rem' : 0 }}>
+        ].map((s, i) => (
+          <div key={s.label} className={`stat-item ${i === 2 ? 'last' : ''}`}>
             <p className="label" style={{ marginBottom: '0.5rem' }}>{s.label}</p>
             <p style={{ fontWeight: 800, fontSize: '1.5rem', letterSpacing: '-0.04em', color: (s as any).orange ? 'var(--orange)' : 'var(--text-primary)' }}>{s.value}</p>
           </div>
@@ -67,7 +65,7 @@ export default function Home() {
       </div>
 
       {/* Feature Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', width: '100%', maxWidth: '900px' }}>
+      <div className="grid-3" style={{ width: '100%', maxWidth: '900px' }}>
         {[
           { icon: <Zap size={22} color="var(--orange)" />, title: 'Auto-Routing', desc: 'Smart contracts instantly allocate your sBTC 50/50 across Zest lending and Hermetica delta-neutral vaults.' },
           { icon: <BarChart3 size={22} color="#8B5CF6" />, title: 'Blended APY', desc: 'Enjoy a competitive 8–10% blended APY without manually tracking individual protocol rates.' },

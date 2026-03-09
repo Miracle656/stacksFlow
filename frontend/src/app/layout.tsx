@@ -31,29 +31,15 @@ export default function RootLayout({
             WebkitBackdropFilter: 'blur(16px)',
             borderBottom: '1px solid var(--border)',
           }}>
-            <div style={{
-              maxWidth: '1200px',
-              margin: '0 auto',
-              padding: '0 1.5rem',
-              height: '68px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}>
+            <div className="nav-container">
               <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/aurum-logo.png" alt="Aurum" style={{ width: 36, height: 36, borderRadius: 10, objectFit: 'contain' }} />
                 <span style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>Aurum</span>
               </Link>
 
               {/* Centre Nav Pills */}
-              <nav style={{
-                display: 'flex',
-                gap: '0.25rem',
-                background: 'var(--surface)',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius-pill)',
-                padding: '0.25rem',
-              }}>
+              <nav className="nav-pills">
                 {[
                   { label: 'Dashboard', href: '/dashboard' },
                   { label: 'Portfolio', href: '/portfolio' },
@@ -76,7 +62,7 @@ export default function RootLayout({
           </header>
 
           {/* Page Content */}
-          <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '2.5rem 1.5rem 4rem' }}>
+          <main className="main-content">
             {children}
           </main>
         </WalletProvider>

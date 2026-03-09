@@ -80,7 +80,7 @@ export default function PortfolioPage() {
             </div>
 
             {/* Top stat row */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem", marginBottom: "1.5rem" }}>
+            <div className="grid-4" style={{ marginBottom: "1.5rem" }}>
                 <TopStat label="Total Deposited" value={`${totalDeposited} sBTC`} />
                 <TopStat label="Current Value" value={`${totalCurrent} sBTC`} highlight />
                 <TopStat label="Total Yield Earned" value={`+${totalYield} sBTC`} green />
@@ -88,7 +88,7 @@ export default function PortfolioPage() {
             </div>
 
             {/* 2-col layout */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: "1.5rem", alignItems: "start" }}>
+            <div className="grid-1-300 mobile-reverse">
 
                 {/* Left — Positions / Activity */}
                 <div className="card" style={{ padding: "1.75rem" }}>
@@ -118,7 +118,7 @@ export default function PortfolioPage() {
                     </div>
 
                     {activeTab === "positions" ? (
-                        <div>
+                        <div className="table-wrapper"><div className="table-min">
                             {/* Table header */}
                             <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr", gap: "1rem", padding: "0 0 0.75rem", borderBottom: "1px solid var(--border)", marginBottom: "0.75rem" }}>
                                 {["Pool", "Deposited", "Current Value", "APY", "Yield Earned"].map((h) => (
@@ -151,7 +151,7 @@ export default function PortfolioPage() {
                                 <span style={{ fontWeight: 700, fontSize: "0.875rem", color: "var(--orange)" }}>~8.15%</span>
                                 <span style={{ fontWeight: 700, fontSize: "0.875rem", color: "var(--green)" }}>+{totalYield} sBTC</span>
                             </div>
-                        </div>
+                        </div></div>
                     ) : (
                         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                             {ACTIVITY.map((tx, i) => (
