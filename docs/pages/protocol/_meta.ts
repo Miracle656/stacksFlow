@@ -1,4 +1,4 @@
-{
+export default {
     "architecture": "Architecture",
     "yield-sources": "Yield Sources",
     "smart-contracts": "Smart Contracts"
